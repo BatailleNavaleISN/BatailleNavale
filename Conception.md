@@ -3,7 +3,7 @@
 * Sa taille (le nombre de cases qu'il occupe)
 * Son orientation (s'il est placé de manière horizontale ou verticale)
 
-Pour représenter les éléments du bateau qui sont touchés on va utiliser un tableau
+Pour représenter les éléments du bateau qui sont touchés on va utiliser un tableau (nom : touché)
 à une seule dimension et de longueur 5 (la taille maximale d'un bateau).
 
 On utilisera seulement les n premières cases (correspondant aux nombres de cases occupées par le bateau (par exemple pour un bateau de 2 cases on ne va remplir que les deux premières cases du tableau à 5 cases))
@@ -22,3 +22,9 @@ Un bateau de 3 cases orienté verticalement et situé dans le coin inférieur dr
 On codera ses coordonnées par : (10,7) ; 1
 
 Il ne pourra évidemment pas dépasser le plateau de jeu
+
+### Comment savoir si un bateau est touché ou coulé :
+On parcourt le tableau, pour chaque bateau (bateaux horizontaux et verticaux traités séparément) on compare les coordonnées des cases qu'il occupe avec la coordonnée de la case sur laquelle on tire. Si les coordonnées sont égales on met un 1 dans la case correspondante du tableau "touché"
+
+Si la somme des éléments du tableau touché est égale à la taille du bateau alors le bateau est coulé.
+Si tous les bateaux sont coulés, le joueur a perdu la partie.
