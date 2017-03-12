@@ -28,3 +28,7 @@ On parcourt le tableau, pour chaque bateau (bateaux horizontaux et verticaux tra
 
 Si la somme des éléments du tableau touché est égale à la taille du bateau alors le bateau est coulé.
 Si tous les bateaux sont coulés, le joueur a perdu la partie.
+
+# Placement des bateaux 
+Lors du placement des bateaux il ne faut pas qu'ils se superposent ou sortent du plateau de jeu
+### Ne pas sortir du plateau de jeu : 
