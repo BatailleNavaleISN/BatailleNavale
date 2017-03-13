@@ -1,5 +1,5 @@
 # Représentation des bateaux
-### Un bateau est représenté par blop blop blop : 
+### Un bateau est représenté par: 
 * Sa taille (le nombre de cases qu'il occupe)
 * Son orientation (s'il est placé de manière horizontale ou verticale)
 
