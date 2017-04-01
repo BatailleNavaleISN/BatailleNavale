@@ -1,55 +1,64 @@
+void PlateauDeJeu(int x, int y, int TailleCase, int NombreDeCases)
+      {
+        for (int i=0;i<NombreDeCases+1;i=i+1)
+       {
+          int coordVerticale = x+i*TailleCase;
+           int coordHorizontale = y+i*TailleCase;
+          line(coordVerticale,y,coordVerticale,TailleCase*NombreDeCases+y);
+          line(x,coordHorizontale,TailleCase*NombreDeCases+x,coordHorizontale);
+       }
+      }
 void setup ()
-{
- PFont police;
-fill(34, 66, 124);
-police=loadFont("GentiumBookBasic-Italic-48.vlw");
+  {
+     PFont police;
+     fill(34, 66, 124);
+      police=loadFont("GentiumBookBasic-Italic-48.vlw");
 
-size (1000,800);
-background (169, 234, 254);
+      size(1300,670);
+      background (169, 234, 254);
 
-textFont(police,80);
-text("Bataille Navale",260,100);
-textFont(police, 40);
-text("Les règles",50,700);
-textFont(police, 20);
-text("blabla", 40,730);
+      textFont(police,80);
+      text("Bataille Navale",260,100);
+      textFont(police, 40);
+      text("Les règles",1025,150);
+      textFont(police, 20);
+      text("blabla", 1000,150);
 
-PImage monImg;
-monImg =loadImage("bateau.jpg");
-image(monImg,50,180,640,457);
-}
-
+      PImage monImg;
+      monImg =loadImage("bateau.jpg");
+      image(monImg,50,180,640,457);
+  }
 void draw ()
-{
-  fill(255);
-  rect (760, 270, 150, 75);
-  rect (760, 370, 150, 75);
-  rect (760, 470, 150, 75);
+  {
+    fill(255);
+    rect (760, 270, 150, 75);
+    rect (760, 370, 150, 75);
+    rect (760, 470, 150, 75);
 
-textSize (30);
-fill (1, 215, 88) ;
-text ("Facile", 800, 317);
-fill (244, 102, 27) ;
-text ("Moyen", 796, 417);
-fill (255, 0, 0) ;
-text ("Difficile", 789, 517);
+    textSize (30);
+    fill (1, 215, 88) ;
+    text ("Facile", 800, 317);
+    fill (244, 102, 27) ;
+    text ("Moyen", 796, 417);
+    fill (255, 0, 0) ;
+    text ("Difficile", 789, 517);
   
   
 if (mouseX > 700 && mouseX < 850 && mouseY > 260 && mouseY < 335) {
       fill(1,215,88);
       rect (760, 270, 150, 75);
       fill (255) ;
-text ("Facile", 800, 317);
+      text ("Facile", 800, 317);
    }
-   else
-   if (mouseX > 700 && mouseX < 850 && mouseY > 360 && mouseY < 435) {
+else
+if (mouseX > 700 && mouseX < 850 && mouseY > 360 && mouseY < 435) {
       fill(244,102,27);
       rect (760, 370, 150, 75);
       fill (255) ;
       text ("Moyen", 796, 417);
    }
-   else
-   if (mouseX > 700 && mouseX < 850 && mouseY > 460 && mouseY < 535) {
+else
+if (mouseX > 700 && mouseX < 850 && mouseY > 460 && mouseY < 535) {
       fill(255,0,0);
       rect (760, 470, 150, 75);
       fill (255) ;
@@ -57,13 +66,48 @@ text ("Facile", 800, 317);
   }
   
   
-  if (mousePressed == true) 
+  
+  
+  
+  
+  
+  
+  
+if (mousePressed && mouseX > 700 && mouseX < 850 && mouseY > 260 && mouseY < 335 == true) 
   {
-    
-  } 
-  else 
+     
+        stroke(21, 96, 189);
+        background(119,181,254);
+        
+      
+        PlateauDeJeu(30,30,60,10);
+        PlateauDeJeu(700,230,40,10);
+     
+   } 
+ 
+else 
+if (mousePressed && mouseX > 700 && mouseX < 850 && mouseY > 360 && mouseY < 435 == true) 
   {
-   
-  }
-
+     
+        stroke(21, 96, 189);
+        background(119,181,254);
+        
+      
+        PlateauDeJeu(30,30,60,10);
+        PlateauDeJeu(700,230,40,10);
+     
+   } 
+ 
+else 
+if (mousePressed && mouseX > 700 && mouseX < 850 && mouseY > 460 && mouseY < 535 == true) 
+  {
+     
+        stroke(21, 96, 189);
+        background(119,181,254);
+        
+      
+        PlateauDeJeu(30,30,60,10);
+        PlateauDeJeu(700,230,40,10);
+     
+   } 
 }
