@@ -1,4 +1,69 @@
-PFont police;
+class Bateau
+{
+  int taille;
+  int x;
+  int y;
+  int direction;
+  int [] touche;
+  Bateau()
+  {
+    touche = new int [5];
+    for ( int i=0; i<5; i= i+1)
+    {
+      touche[i] = 0;
+    }
+  }
+}
+void DessineBateau(Bateau Navire)
+{
+  ellipseMode(CORNER);
+  int X=(Navire.x*40+700);
+  int Y=(Navire.y*40+230);
+  int Hauteur;
+  int Largeur;
+  if (Navire.direction==0)
+  {
+    Hauteur = 40;
+    Largeur = Navire.taille*40;
+  } else
+  {
+    Hauteur = Navire.taille*40;
+    Largeur = 40;
+  }
+  smooth();
+  ellipse(X+5, Y+5, Largeur-10, Hauteur-10);
+}
+boolean coup = false;
+void mousePressed() {
+  coup=true;
+}
+boolean Jeu_Lance = false;
+void LanceJeu()
+{
+  Jeu_Lance=true;
+  background(119, 181, 254);
+}
+void JouerEn(int CaseX, int CaseY)
+{
+  int X = CaseX*60+30;
+  int Y = CaseY*60+30;
+  line(X, Y, X+60, Y+60);
+  line(X+60, Y, X, Y+60);
+}
+void PlateauDeJeu(int x, int y, int TailleCase, int NombreDeCases) {
+  for (int i=0; i<NombreDeCases+1; i=i+1) {
+    int coordVerticale = x+i*TailleCase;
+    int coordHorizontale = y+i*TailleCase;
+    line(coordVerticale, y, coordVerticale, TailleCase*NombreDeCases+y);
+    line(x, coordHorizontale, TailleCase*NombreDeCases+x, coordHorizontale);
+  }
+}
+void setup() {
+  size(1300, 670);
+  stroke(21, 96, 189);
+  background(116, 180, 180);
+
+  PFont police;
   fill(46,40,104);
   police=loadFont("GentiumBookBasic-Italic-48.vlw");
 
@@ -257,5 +322,3 @@ boolean Coule (Bateau Navire)
 //    }
 //  }
 //}
-
-
