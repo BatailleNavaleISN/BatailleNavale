@@ -64,21 +64,34 @@ void setup() {
   background(116, 180, 180);
 
   PFont police;
-  fill(46,40,104);
-  police=loadFont("GentiumBookBasic-Italic-48.vlw");
+  fill(46, 40, 104);
+  police=loadFont("GentiumBookBasic-48.vlw");
 
   size(1300, 670);
-  background (119,140,233);
+  background (119, 140, 233);
 
   textFont(police, 80);
   text("Bataille Navale", 260, 100);
   textFont(police, 40);
   text("Les règles", 1025, 150);
-  textFont(police, 20);
+  textFont(police, 18);
   text("But du jeu : toucher les bateaux de l'adversaire", 935, 180);
-  text("pour gagner la partie",935,200);
-  text("Comment jouer : cliquer sur une case pour",935,220);
-  text("essayer de toucher les bateaux de l'adversaire",935,240);
+  text("pour gagner la partie", 935, 210);
+  text("Comment jouer : cliquer sur une case pour", 935, 230);
+  text("essayer de toucher les bateaux de l'adversaire", 935, 250);
+  text("Présentation des différents bateaux:", 935, 280);
+  text("Le porte-avion:", 935, 300);
+  text("Il mesure 5 cases", 935, 320);
+  text("Le croiseur:", 935, 340);
+  text("Il mesure 4 cases", 935, 360);
+  text("Le contre-torpilleur:", 935, 380);
+  text("Il mesure 3 cases", 935, 400);
+  text("Le sous-marin:", 935, 420);
+  text("Il mesure 3 cases", 935,440);
+  text("Le torpilleur:", 935, 460);
+  text("Il mesure 2 cases",935,480);
+  textFont(police, 40);
+  text("Bon jeu!",1025,580);
   Croiseur=new Bateau();
   Croiseur.taille=4;
   Croiseur.x=3;                                        
@@ -104,16 +117,16 @@ void setup() {
   Torpilleur.x=7;
   Torpilleur.y=3;
   Torpilleur.direction=0;
-  
 
 
-PImage monImg;
-monImg =loadImage("aircraft-carrier-569867_640.jpg");
-image(monImg,50,180,640,457);
+
+  PImage monImg;
+  monImg =loadImage("aircraft-carrier-569867_640.jpg");
+  image(monImg, 50, 180, 640, 457);
 }
 void Interface()
 {
-  fill(155,156,220);
+  fill(155, 156, 220);
   rect (760, 270, 150, 75);
   rect (760, 370, 150, 75);
   rect (760, 470, 150, 75);
@@ -322,3 +335,4 @@ boolean Coule (Bateau Navire)
 //    }
 //  }
 //}
+
