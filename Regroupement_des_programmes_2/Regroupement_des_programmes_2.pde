@@ -61,14 +61,14 @@ void PlateauDeJeu(int x, int y, int TailleCase, int NombreDeCases) {
 void setup() {
   size(1300, 670);
   stroke(21, 96, 189);
-  background(119, 181, 254);
+  background(116, 180, 180);
 
   PFont police;
-  fill(34, 66, 124);
-  police=loadFont("Delius-Regular-48.vlw");
+  fill(46,40,104);
+  police=loadFont("GentiumBookBasic-Italic-48.vlw");
 
   size(1300, 670);
-  background (169, 234, 254);
+  background (119,140,233);
 
   textFont(police, 80);
   text("Bataille Navale", 260, 100);
@@ -104,13 +104,13 @@ void setup() {
   
 
 
-  //      PImage monImg;
-  //      monImg =loadImage("bateau.jpg");
-  //      image(monImg,50,180,640,457);
+PImage monImg;
+monImg =loadImage("aircraft-carrier-569867_640.jpg");
+image(monImg,50,180,640,457);
 }
 void Interface()
 {
-  fill(255);
+  fill(155,156,220);
   rect (760, 270, 150, 75);
   rect (760, 370, 150, 75);
   rect (760, 470, 150, 75);
