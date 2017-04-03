@@ -1,69 +1,4 @@
-class Bateau
-{
-  int taille;
-  int x;
-  int y;
-  int direction;
-  int [] touche;
-  Bateau()
-  {
-    touche = new int [5];
-    for ( int i=0; i<5; i= i+1)
-    {
-      touche[i] = 0;
-    }
-  }
-}
-void DessineBateau(Bateau Navire)
-{
-  ellipseMode(CORNER);
-  int X=(Navire.x*40+700);
-  int Y=(Navire.y*40+230);
-  int Hauteur;
-  int Largeur;
-  if (Navire.direction==0)
-  {
-    Hauteur = 40;
-    Largeur = Navire.taille*40;
-  } else
-  {
-    Hauteur = Navire.taille*40;
-    Largeur = 40;
-  }
-  smooth();
-  ellipse(X+5, Y+5, Largeur-10, Hauteur-10);
-}
-boolean coup = false;
-void mousePressed() {
-  coup=true;
-}
-boolean Jeu_Lance = false;
-void LanceJeu()
-{
-  Jeu_Lance=true;
-  background(119, 181, 254);
-}
-void JouerEn(int CaseX, int CaseY)
-{
-  int X = CaseX*60+30;
-  int Y = CaseY*60+30;
-  line(X, Y, X+60, Y+60);
-  line(X+60, Y, X, Y+60);
-}
-void PlateauDeJeu(int x, int y, int TailleCase, int NombreDeCases) {
-  for (int i=0; i<NombreDeCases+1; i=i+1) {
-    int coordVerticale = x+i*TailleCase;
-    int coordHorizontale = y+i*TailleCase;
-    line(coordVerticale, y, coordVerticale, TailleCase*NombreDeCases+y);
-    line(x, coordHorizontale, TailleCase*NombreDeCases+x, coordHorizontale);
-  }
-}
-void setup() {
-  size(1300, 670);
-  stroke(21, 96, 189);
-  background(116, 180, 180);
-
-  PFont police;
+PFont police;
   fill(46,40,104);
   police=loadFont("GentiumBookBasic-Italic-48.vlw");
 
@@ -75,7 +10,10 @@ void setup() {
   textFont(police, 40);
   text("Les règles", 1025, 150);
   textFont(police, 20);
-  text("blabla", 1000, 150);
+  text("But du jeu : toucher les bateaux de l'adversaire", 935, 180);
+  text("pour gagner la partie",935,200);
+  text("Comment jouer : cliquer sur une case pour",935,220);
+  text("essayer de toucher les bateaux de l'adversaire",935,240);
   Croiseur=new Bateau();
   Croiseur.taille=4;
   Croiseur.x=3;                                        
@@ -124,19 +62,19 @@ void Interface()
   text ("Difficile", 789, 517);
 
 
-  if (mouseX > 700 && mouseX < 850 && mouseY > 260 && mouseY < 335) {
+  if (mouseX > 760 && mouseX < 910 && mouseY > 270 && mouseY < 345) {
     fill(1, 215, 88);
     rect (760, 270, 150, 75);
     fill (255) ;
     text ("Facile", 800, 317);
   } else
-    if (mouseX > 700 && mouseX < 850 && mouseY > 360 && mouseY < 435) {
+    if (mouseX > 760 && mouseX < 910 && mouseY > 370 && mouseY < 445) {
     fill(244, 102, 27);
     rect (760, 370, 150, 75);
     fill (255) ;
     text ("Moyen", 796, 417);
   } else
-    if (mouseX > 700 && mouseX < 850 && mouseY > 460 && mouseY < 535) {
+    if (mouseX > 760 && mouseX < 910 && mouseY > 470 && mouseY < 545) {
     fill(255, 0, 0);
     rect (760, 470, 150, 75);
     fill (255) ;
@@ -145,16 +83,16 @@ void Interface()
 
 
 
-  if (mousePressed && mouseX > 700 && mouseX < 850 && mouseY > 260 && mouseY < 335 == true) 
+  if (mousePressed && mouseX > 760 && mouseX < 910 && mouseY > 270 && mouseY < 335 == true) 
   {
     LanceJeu();
   } else 
-    if (mousePressed && mouseX > 700 && mouseX < 850 && mouseY > 360 && mouseY < 435 == true) 
+    if (mousePressed && mouseX > 760 && mouseX < 910 && mouseY > 370 && mouseY < 435 == true) 
   {
 
     LanceJeu();
   } else 
-    if (mousePressed && mouseX > 700 && mouseX < 850 && mouseY > 460 && mouseY < 535 == true) 
+    if (mousePressed && mouseX > 760 && mouseX < 910 && mouseY > 470 && mouseY < 535 == true) 
   {
 
     LanceJeu();
@@ -319,4 +257,5 @@ boolean Coule (Bateau Navire)
 //    }
 //  }
 //}
+
 
