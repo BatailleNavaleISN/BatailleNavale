@@ -37,7 +37,8 @@ class Bateau
   }
 }
 // On crée une flotte pour le Joueur
-Bateau[] flotteJoueur;                                          
+Bateau[] flotteJoueur;
+Bateau [] flotteOrdi;
 
 // On crée une fonction capable d'afficher la flotte créee
 void AfficheFlotte()                                            
@@ -214,6 +215,7 @@ void setup() {
   image(monImg, 50, 180, 640, 457);
 
   flotteJoueur=FlotteAleatoire ();
+  flotteOrdi=FlotteAleatoire ();
 }
 void Interface()
 {
