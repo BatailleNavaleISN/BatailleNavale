@@ -175,11 +175,13 @@ Bateau [] FlotteAleatoire ()
   }
   return b;
 }
+// On déclare le setup en donnant la taille de la page et sa couleur de fond
 void setup() {
   size(1300, 670);
   stroke(21, 96, 189);
   background(116, 180, 180);
 
+//On annonce la police d'écriture, sa couleur ainsi que sa taille
   PFont police;
   fill(46, 40, 104);
   police=loadFont("GentiumBasic-48.vlw");
@@ -187,6 +189,7 @@ void setup() {
   size(1300, 670);
   background (119, 140, 233);
 
+  //On écrit le texte, le titre et les règles du jeu
   textFont(police, 80);
   text("Bataille Navale", 260, 100);
   textFont(police, 40);
@@ -210,19 +213,23 @@ void setup() {
   textFont(police, 40);
   text("Bon jeu!", 1025, 580);
 
+  //On met l'image en précisant sa taille
   PImage monImg;
   monImg =loadImage("aircraft-carrier-569867_640.jpg");
   image(monImg, 50, 180, 640, 457);
 
+  //
   flotteJoueur=FlotteAleatoire ();
   flotteOrdi=FlotteAleatoire ();
 }
 void Interface()
 {
+  //On dessine les rectangles des niveaux du jeu "facile" et "difficile" 
   fill(155, 156, 220);
   rect (760, 270, 150, 75);
   rect (760, 400, 150, 75);
 
+  //On précise leur taille et leur couleur
   textSize (30);
   fill (1, 215, 88) ;
   text ("Facile", 800, 317);
@@ -230,12 +237,15 @@ void Interface()
   text ("Difficile", 789, 447);
 
 
+  //Si la souris est au dessus du rectangle "Facile", alors le rectangle change de couleur et devient vert et le texte devient blanc
   if (mouseX > 760 && mouseX < 910 && mouseY > 270 && mouseY < 345) {
     fill(1, 215, 88);
     rect (760, 270, 150, 75);
     fill (255) ;
     text ("Facile", 800, 317);
-  } else
+  }
+    //Sinon si la souris est au dessus du rectangle "Difficile" alors il change de couleur et devient rouge et le texte devient blanc
+    else
     if (mouseX > 760 && mouseX < 910 && mouseY > 400 && mouseY < 475) {
     fill(255, 0, 0);
     rect (760, 400, 150, 75);
@@ -244,11 +254,13 @@ void Interface()
   }
 
 
-
+  //Si on appuie sur la souris lorsqu'elle est au dessus du rectangle facile alors la grille du jeu se lance pour le niveau facile
   if (mousePressed && mouseX > 760 && mouseX < 910 && mouseY > 270 && mouseY < 335 == true) 
   {
     LanceJeu();
-  } else 
+  } 
+    //Sinon si on appuie sur la souris lorsqu'elle est au dessus du rectangle difficile alors le jeu se lance pour le niveau difficile
+    else 
     if (mousePressed && mouseX > 760 && mouseX < 910 && mouseY > 400 && mouseY < 465 == true) 
   {
 
@@ -443,4 +455,3 @@ boolean Coule (Bateau Navire)
 //    }
 //  }
 //}
-
