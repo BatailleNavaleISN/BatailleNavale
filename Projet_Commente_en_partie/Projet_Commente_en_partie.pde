@@ -310,7 +310,17 @@ void draw () {
   {
     // Le grand plateau de Jeu commence en x=30 y=30, ses cases sont au
     // nombre de 10 et mesurent 60 pixels
-    PlateauDeJeu(30, 30, 60, 10);                                  
+    PlateauDeJeu(30, 30, 60, 10);     
+    
+    fill(155, 156, 220);
+    rect (800, 60, 180, 80);
+    textSize (50);
+    fill (255) ;
+    text ("Menu", 830, 115);
+     if (mousePressed && mouseX > 800 && mouseX < 980 && mouseY > 60 && mouseY < 140 == true) 
+  {
+    Interface();
+  } 
 
     // Le petit plateau de Jeu commence en x=700 y=230, ses cases sont
     // au nombre de 10 et mesurent 40 pixels
