@@ -4,7 +4,8 @@ int nombreBateaux = 5;
 //On crée un tableau d'entiers qui renseigne la taille des bateaux du joueur
 int [] tailleBateau= {2, 2, 3, 4, 5}; 
 
-//On crée une classe Bateau qui contiendra des bateaux différents qui ne sont pas créés de la même manière
+//On crée une classe Bateau qui contiendra des bateaux différents 
+//qui ne sont pas créés de la même manière
 class Bateau                                                   
 {
   //Chaque bateau est définit par sa taille...
@@ -19,7 +20,8 @@ class Bateau
   //...si il est orienté de manière verticale ou horizontale (0=Horizontal ; 1=Vertical)
   int direction;                                                
 
-  //On a créé un tableau réprésentant le bateau avec le même nombre de cases que celles qu'occupe le bateau. Il est rempli de 0 au début de la partie
+  //On a créé un tableau réprésentant le bateau avec le même nombre de 
+  //cases que celles qu'occupe le bateau. Il est rempli de 0 au début de la partie
   //car aucune case n'a été touchée (1=case touchée; 0=case non touchée)
   int [] touche;                                                
 
@@ -41,7 +43,8 @@ Bateau[] flotteJoueur;
 // On crée une flotte pour l'Ordinateur
 Bateau [] flotteOrdi;
 
-// On crée une fonction capable d'afficher la flotte du joueur que l'on vient de créer
+// On crée une fonction capable d'afficher la flotte du joueur
+//que l'on vient de créer
 void AfficheFlotte()                                            
 {
   //On parcourt le nombre de bateaux pour tous les dessiner
@@ -54,7 +57,8 @@ void AfficheFlotte()
 
 void DessineBateau(Bateau Navire)                              
 {
-  // On dessine le bateau en forme d'ellispe du coin supérieur gauche au coin inférieur droit
+  // On dessine le bateau en forme d'ellispe du coin supérieur 
+  //gauche au coin inférieur droit
   ellipseMode(CORNER); 
   // on place les bateaux visibles dans la petite grille seulement
   int X=(Navire.x*40+700);
@@ -107,6 +111,11 @@ void Tir_Ordi ()
   {
     TirReussi (flotteJoueur[i], Tir_Ordi_x, Tir_Ordi_y);
   }
+  //  int i;
+  //  if(Coule(flotteJoueur[i]==true))
+  //  {
+  //    println ("coulé");
+  //  }
 }
 
 boolean Jeu_Lance = false;
@@ -124,7 +133,8 @@ void JouerEn(int CaseX, int CaseY)
   line(X, Y, X+60, Y+60);
   line(X+60, Y, X, Y+60);
 }
-// une grille de jeu est définie par sa coordonnée en x en y, la taille de ses cases et le nombre de celles-ci
+// une grille de jeu est définie par sa coordonnée en x en y, la taille 
+//de ses cases et le nombre de celles-ci
 void PlateauDeJeu(int x, int y, int TailleCase, int NombreDeCases) {
 
   // on parcourt la grille
@@ -145,13 +155,15 @@ Bateau [] FlotteAleatoire ()
   // b est un tableau de bateaux qui est pour l'instant vide
   Bateau[] b=new Bateau [nombreBateaux];
 
-  // on parcourt tout les éléments du tableau nombreBateaux et on crée un bateau pour chaque élément
+  // on parcourt tout les éléments du tableau nombreBateaux et on crée
+  // un bateau pour chaque élément
   for (int i=0; i<nombreBateaux; i=i+1)
   {
 
     b[i] = new Bateau();
 
-    //la taille du nouveau bateau est renseignée dans le tableau tailleBateau, il ne peut ni être plus grand ni plus petit etc
+    //la taille du nouveau bateau est renseignée dans le tableau tailleBateau
+    // il ne peut ni être plus grand ni plus petit etc
     b[i].taille=tailleBateau[i];
 
     // on tire la direction du bateau au hasard entre 0 et 1
@@ -160,29 +172,35 @@ Bateau [] FlotteAleatoire ()
     // tant que les bateaux ne sont pas superposés : 
     boolean EnCollision=false;
     do {
-      //si le bateau est horizontal on va tirer ses coordonnées au hasard mais avec des conditions
+      //si le bateau est horizontal on va tirer ses coordonnées 
+      //au hasard mais avec des conditions
       if (b[i].direction==0)
       {
-        //sa coordonnée en x ne doit pas le faire sortir de la grille alors on enlève à x la taille du bateau
+        //sa coordonnée en x ne doit pas le faire sortir de la
+        // grille alors on enlève à x la taille du bateau
         b[i].x=int (random(0, 10-b[i].taille));
 
         //on tire au hasard la coordonnée y
         b[i].y=int (random(0, 10));
 
-        //si le bateau est vertical on tire ses coordonnées au hasard avec des conditions
+        //si le bateau est vertical on tire ses coordonnées au hasard
+        // avec des conditions
       } else
       {
         // on tire au hasard la coordonnée x
         b[i].x=int (random(0, 10));
-        // la coordonnée y ne doit pas le faire sortir de la grille alors on enlève à y la taille du bateau
+        // la coordonnée y ne doit pas le faire sortir de la grille 
+        //alors on enlève à y la taille du bateau
         b[i].y=int (random(0, 10-b[i].taille));
       }
-      // on compare les coordonnées du bateau i que l'on veut placer avec les coordonnées des bateaux déjà placés sur la grille
+      // on compare les coordonnées du bateau i que l'on veut placer avec
+      // les coordonnées des bateaux déjà placés sur la grille
       EnCollision=false;
       for (int j=0; j<i; j=j+1)
       {
-        // les bateaux sont considérés en collision si il y a une collision entre deux bateaux i et j 
-        //ou qu'il y a eu une collision entre des bateaux placés auparavant
+        // les bateaux sont considérés en collision si il y a une collision
+        // entre deux bateaux i et j ou qu'il y a eu une collision entre des
+        // bateaux placés auparavant
         EnCollision = EnCollision || Collision(b[i], b[j]);
       }
 
@@ -213,7 +231,7 @@ void setup() {
 
   //On annonce la police d'écriture, sa couleur ainsi que sa taille
   PFont police;
-  fill(46, 40, 104);
+  fill(46, 0, 108);
   police=loadFont("GentiumBasic-48.vlw");
 
   size(1300, 670);
@@ -255,49 +273,33 @@ void setup() {
 }
 void Interface()
 {
-  //On dessine les rectangles des niveaux du jeu "facile" et "difficile" 
+  //On dessine le rectangle pour jouer 
   fill(155, 156, 220);
-  rect (760, 270, 150, 75);
-  rect (760, 400, 150, 75);
+  rect (740, 350, 150, 75);
 
-  //On précise leur taille et leur couleur
+  //On précise sa taille et sa couleur
   textSize (30);
-  fill (1, 215, 88) ;
-  text ("Facile", 800, 317);
-  fill (255, 0, 0) ;
-  text ("Difficile", 789, 447);
+  fill (46, 0, 108) ;
+  text ("Jouer", 785, 395);
 
-
-  //Si la souris est au dessus du rectangle "Facile", alors le rectangle change de couleur et devient vert et le texte devient blanc
-  if (mouseX > 760 && mouseX < 910 && mouseY > 270 && mouseY < 345) {
-    fill(1, 215, 88);
-    rect (760, 270, 150, 75);
+  //Si la souris est au dessus du rectangle "jouer", alors le rectangle
+  // change de couleur et devient violet et le texte devient blanc
+  if (mouseX > 760 && mouseX < 910 && mouseY > 350 && mouseY < 425)
+  {
+    fill(46, 0, 108);
+    rect (740, 350, 150, 75);
     fill (255) ;
-    text ("Facile", 800, 317);
-  }
-  //Sinon si la souris est au dessus du rectangle "Difficile" alors il change de couleur et devient rouge et le texte devient blanc
-  else
-    if (mouseX > 760 && mouseX < 910 && mouseY > 400 && mouseY < 475) {
-    fill(255, 0, 0);
-    rect (760, 400, 150, 75);
-    fill (255) ;
-    text ("Difficile", 789, 447);
+    text ("Jouer", 785, 395);
   }
 
-
-  //Si on appuie sur la souris lorsqu'elle est au dessus du rectangle facile alors la grille du jeu se lance pour le niveau facile
-  if (mousePressed && mouseX > 760 && mouseX < 910 && mouseY > 270 && mouseY < 335 == true) 
+  //Si on appuie sur la souris lorsqu'elle est au dessus du rectangle jouer alors la grille
+  // du jeu se lance pour le niveau facile
+  if (mousePressed && mouseX > 760 && mouseX < 910 && mouseY > 350 && mouseY < 425 == true) 
   {
-    LanceJeu();
-  } 
-  //Sinon si on appuie sur la souris lorsqu'elle est au dessus du rectangle difficile alors le jeu se lance pour le niveau difficile
-  else 
-    if (mousePressed && mouseX > 760 && mouseX < 910 && mouseY > 400 && mouseY < 465 == true) 
-  {
-
     LanceJeu();
   }
 }
+
 int CaseClique (int coordonnee, int tailleCase, int DebutGrille) 
 {
   return (coordonnee-DebutGrille)/tailleCase;
@@ -306,12 +308,15 @@ void draw () {
   // si le jeu est lancé alors on dessine les grilles de jeu 
   if (Jeu_Lance==true)
   {
-    // Le grand plateau de Jeu commence en x=30 y=30, ses cases sont au nombre de 10 et mesurent 60 pixels
+    // Le grand plateau de Jeu commence en x=30 y=30, ses cases sont au
+    // nombre de 10 et mesurent 60 pixels
     PlateauDeJeu(30, 30, 60, 10);                                  
 
-    // Le petit plateau de Jeu commence en x=700 y=230, ses cases sont au nombre de 10 et mesurent 40 pixels
+    // Le petit plateau de Jeu commence en x=700 y=230, ses cases sont
+    // au nombre de 10 et mesurent 40 pixels
     PlateauDeJeu(700, 230, 40, 10);  
-    // On apelle la fonction Affiche flotte pour afficher dans la petite grille la flotte du joueur
+    // On apelle la fonction Affiche flotte pour afficher dans la petite 
+    //grille la flotte du joueur
     AfficheFlotte();     
     for (int i=0; i<10; i=i+1)
     {
@@ -375,8 +380,9 @@ boolean CoordIn(Bateau Navire, int test_x, int test_y )
   }
   return false;
 }
-// on crée une fonction qui va comparer les coordonnées de deux navires pour savoir si ils sont superposés
-// cette fonction nous a servi pour placer les bateaux aléatoirement et ne pas les superposer
+// on crée une fonction qui va comparer les coordonnées de deux navires
+//pour savoir si ils sont superposés cette fonction nous a servi pour placer
+//les bateaux aléatoirement et ne pas les superposer
 boolean Collision (Bateau Navire_A, Bateau Navire_B)
 {
   int coord_x=Navire_A.x;
@@ -462,16 +468,19 @@ boolean Coule (Bateau Navire)
     somme=somme+Navire.touche[i];
   }
 
-  // Si la somme de tous les 1 dans le tableau du bateau est égale à la taille du bateau en question alors
-  //cela signifie que tout le tableau est rempli de 1 et que le bateau a entièrement été touché
+  // Si la somme de tous les 1 dans le tableau du bateau est égale
+  // à la taille du bateau en question alors cela signifie que tout le
+  // tableau est rempli de 1 et que le bateau a entièrement été touché
   if ( somme==Navire.taille)                                                 
 
   {
-    //Comme toutes les cases du bateau sont touchées alors on retourne vrai c.-a.-d. que le bateau est alors coulé
+    //Comme toutes les cases du bateau sont touchées alors on retourne
+    // vrai c.-a.-d. que le bateau est alors coulé
     return true;
   } else
   {
-    // Si toutes les cases du bateau ne sont pas touchées, le bateau n'est pas coulé et reste en jeu
+    // Si toutes les cases du bateau ne sont pas touchées,
+    // le bateau n'est pas coulé et reste en jeu
     return false;
   }
 }
