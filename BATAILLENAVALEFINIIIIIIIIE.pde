@@ -199,7 +199,7 @@ void JouerEn(int CaseX, int CaseY)
   int Y = CaseY*60+30;
   line(X, Y, X+60, Y+60);
   line(X+60, Y, X, Y+60);
-  stroke(21, 96, 189;
+  stroke(21, 96, 189);
 
   int compteCoule = 0;
   for (int i=0; i<5; i=i+1)
